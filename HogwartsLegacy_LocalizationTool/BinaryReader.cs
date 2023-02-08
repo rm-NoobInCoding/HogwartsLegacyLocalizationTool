@@ -17,7 +17,7 @@ namespace HogwartsLegacy_LocalizationTool
         {
             long pos = base.BaseStream.Position;
             base.BaseStream.Seek(offset,SeekOrigin.Begin);
-            string ret = String.Concat(ReadChars(length));
+            string ret = Encoding.UTF8.GetString(base.ReadBytes(length));
             base.BaseStream.Seek(pos, SeekOrigin.Begin);
             return ret;
         }
